@@ -11,7 +11,7 @@ class WOE:
 		y: Target
 		to_discretize: array containing the indexes of the features to discretize
 		'''
-		X = X.copy()
+		X = np.array(X)
 		n_features = X.shape[1]
 		IV = np.zeros((n_features, ))
 		self.replace = replace
@@ -49,7 +49,7 @@ class WOE:
 			non_event_index = np.where(y == 1)[0]
 
 			a = len(np.intersect1d(attr_event_index, event_index))
-			b = len(np.intersect1d(attr_event_index, event_index))
+			b = len(np.intersect1d(attr_event_index, non_event_index))
 
 			woe[i] = np.log(((a+0.5)/n_0)/((b+0.5)/n_1))
 
