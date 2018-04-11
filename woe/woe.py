@@ -46,7 +46,7 @@ class WOE:
 		for i, attribute in enumerate(attributes):
 			attr_event_index = np.where(x == attribute)[0]
 			event_index = np.where(y == 1)[0]
-			non_event_index = np.where(y == 1)[0]
+			non_event_index = np.where(y == 0)[0]
 
 			a = len(np.intersect1d(attr_event_index, event_index))
 			b = len(np.intersect1d(attr_event_index, non_event_index))
