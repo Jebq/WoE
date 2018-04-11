@@ -62,10 +62,7 @@ class WOE:
 
 	def discretize(self, x):
 		# Discretize into 10 parts (using percentiles)
-		percentiles = []
-
-		for i in np.arange(0, 110, 10):
-			percentiles.append(np.nanpercentile(x, i))
+		percentiles = np.arange(0, 110, 10)
 
 		return np.float32(np.digitize(x, percentiles))
 
